@@ -1,0 +1,57 @@
+Xen Server Administration:
+
+###Connect server:
+connect-xenserver -URL http://66.55.141.195
+
+###Disconnect XenServer
+Disconnect-Xenserver
+
+
+###Create VM:
+Create:Xenserver:VM -NameLabel "VMNAME without quots"
+
+
+###VM operations
+Invoke-Xenserver:VM.Start
+Invoke-Xenserver:VM.SrartON
+Invoke-Xenserver:VM.Resume
+Invoke-Xenserver:VM.Revert
+Invoke-Xenserver:VM.Shutdown
+Invoke-Xenserver:VM.Suspend
+Invoke-Xenserver:VM.Snapshot
+Invoke-Xenserver:VM.Pause
+Invoke-Xenserver:VM.Unpause
+Invoke-Xenserver:VM.Clone
+Invoke-Xenserver:VM.Copy
+Invoke-Xenserver:VM.ComputerName
+Invoke-Xenserver:VM.Pause
+Invoke-Xenserver:VM.Pause
+
+
+###Create VDI
+Create-XenServer:VDI -NameLabel "VM_NAME" -NameDescription "System disk for $VM_NAME" -SR $PBD.SR -virtualsize 24GB
+Invoke-Xenserver:VDI.Snapshot
+Invoke-Xenserver:VDI.Resize
+Invoke-Xenserver:VDI.Resize
+
+
+
+####Create a harddisk and attach it to the new VM
+->Create-XenServer:VDI -NameLable $NewVMName -VirtualSize 24GB -SR $StorageRep
+-> Create-XenServer:VBD -VM $NewVMName -VDI $NewVMName -Mode RW -Type disl -UserDevice 1
+
+
+###Get VM UUID
+Get-XenServer:VM.Uuid -VM "VMName"
+
+
+###To scan Parent Disk
+
+
+
+
+
+
+
+
+
